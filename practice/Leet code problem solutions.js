@@ -436,3 +436,58 @@ const getSubsets = (arr,tar) => arr.reduce((subsets,value)=> subsets.concat(subs
         
                         
 console.log(getSubsets([-1,0,1,2,-1,-4],0))
+
+ //3sum
+const getSubsets = (arr,tar) => arr.reduce((subsets,value)=> subsets.concat(subsets.map(set=>[...set,value])),[[]])
+                                    .filter(el => el.length === 3)
+                                    .filter(el=> el.reduce((sum,value)=> sum=sum+value,0)===tar)
+        
+                        
+console.log(getSubsets([-1,0,1,2,-1,-4],0))
+
+
+//Remove Duplicates from Sorted Array
+
+var removeDuplicates = function(nums) {
+  var mySet = new Set();
+  
+ nums.forEach(itm => mySet.add(itm))
+  
+  nums=[...mySet]
+  console.log(nums)
+  return nums
+
+};
+
+//Remove element
+var removeElement = function(nums, val) {
+  const newArr = nums.filter(itm=> itm != val)
+  
+  nums = [...newArr]
+  console.log(nums)
+};
+
+
+//Return the index of the first occurrence of needle in haystack, or -1
+var strStr = function(haystack, needle) {
+  if(haystack.indexOf(needle)!=-1){
+      return haystack.indexOf(needle)
+  }else {
+      return -1
+  }
+  };
+
+//Divide Two Integers
+
+var divide = function(dividend, divisor) {
+  var quo = 0;
+  var div = Math.abs(dividend)
+  var  dis = Math.abs(divisor)
+  while(div>=dis){
+    div = div - dis
+    quo++
+  }
+  quo = (divisor<0) || (dividend < 0) ? quo*-1:quo
+
+  return quo
+};
